@@ -20,8 +20,9 @@ def run_game():
     # start game loop
     while True:
         # Monitor keyboard and mouse events
-        game_func.check_events()
-
+        game_func.check_events(ship)
+        # move the ship
+        ship.update()
         # Refresh screen
         # set the background color
         # ship

@@ -10,6 +10,17 @@ class Ship:
 
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
+    #  move
+        self.moving_right = False
+        self.moving_left = False
+
+    def update(self):
+        if self.moving_right:
+            self.rect.centerx += 1
+        elif self.moving_left:
+            self.rect.centerx -= 1
+
+
 
     def blitem(self):
         self.screen.blit(self.image, self.rect)
