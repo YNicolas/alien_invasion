@@ -1,35 +1,31 @@
-#!/user/bin/python3 
-import sys
+#!/user/bin/python3
 import pygame
 
 from settings import Settings
 from ship import Ship
+import game_functions as game_func
+
 
 def run_game():
-    #Initialize game & creat a screen object
+    #  Initialize game & creat a screen object
     pygame.init()
 
     ai_settings = Settings()
-    screen = pygame.display.set_mode((ai_settings.screen_width,
-        ai_settings.screen_height))
+    screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
 
-    #creat a ship
+    # creat a ship
     ship = Ship(screen)
 
-    #start game loop
+    # start game loop
     while True:
-        #Monitor keyboard and mouse events
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        # Monitor keyboard and mouse events
+        game_func.check_events()
 
-        #Refresh screen
-        #set the background color
-        screen.fill(ai_settings.bg_color)
+        # Refresh screen
+        # set the background color
         # ship
-        ship.blitem()
+        game_func.update_screen(ai_settings, screen, ship)
 
-        pygame.display.flip()
 
 run_game()

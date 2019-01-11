@@ -1,6 +1,7 @@
 import pygame
 
-class Ship():
+
+class Ship:
     def __init__(self, screen):
         self.screen = screen
         self.image = pygame.image.load('images/ship.bmp')
@@ -12,4 +13,3 @@ class Ship():
 
     def blitem(self):
         self.screen.blit(self.image, self.rect)
-
