@@ -121,12 +121,16 @@ def update_aliens(ai_settings, stats, screen, ship, aliens, bullets):
 
 
 def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
-    stats.ships_left -= 1
-    aliens.empty()
-    bullets.empty()
-    creat_fleet(ai_settings, screen, ship, aliens)
-    ship.center_ship()
-    sleep(1)
+    if stats.ships_left > 0:
+        stats.ships_left -= 1
+        aliens.empty()
+        bullets.empty()
+        creat_fleet(ai_settings, screen, ship, aliens)
+        ship.center_ship()
+        sleep(1)
+    else:
+        print("Game over!!!")
+        stats.game_active = False
 
 
 def check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets):

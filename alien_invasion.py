@@ -30,16 +30,17 @@ def run_game():
     while True:
         # Monitor keyboard and mouse events
         game_func.check_events(ai_settings, screen, ship, bullets)
-        # move the ship
-        ship.update()
+        if stats.game_active:
+            # move the ship
+            ship.update()
 
-        # check the state of bullets
-        game_func.update_bullets(ai_settings, screen, ship, aliens, bullets)
-        # print(len(bullets))
+            # check the state of bullets
+            game_func.update_bullets(ai_settings, screen, ship, aliens, bullets)
+            # print(len(bullets))
 
-        # update alien
-        game_func.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
-        game_func.update_screen(ai_settings, screen, ship, aliens, bullets)
+            # update alien
+            game_func.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
+            game_func.update_screen(ai_settings, screen, ship, aliens, bullets)
 
 
 run_game()
