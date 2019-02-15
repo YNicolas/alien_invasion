@@ -44,7 +44,7 @@ def run_game():
             # print(len(bullets))
 
             # update alien
-            game_func.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
+            game_func.update_aliens(ai_settings, stats, score_b, screen, ship, aliens, bullets)
 
         game_func.update_screen(ai_settings, screen, stats, score_b, ship, aliens, bullets, button_play)
 
